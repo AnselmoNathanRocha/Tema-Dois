@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tema</title>
+    <style>
+        body {
+            width: 100vw;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            display: grid;
+            place-items: center;
+            user-select: none;
+            transition: .5s ease-in-out;
+        }
+        
+        .light {
+            background-color: lightgray;
+        }
+        
+        .dark {
+            background-color: rgba(0, 0, 0, .8);
+        }
+        
+        .theme {
+            position: relative;
+        }
+        
+        label {
+            display: flex;
+            justify-content: start;
+            align-items: center;
+        }
+        
+        #theme-input {
+            -webkit-appearance: none;
+            display: none;
+        }
+        
+        #theme-input:checked ~ .theme-box {
+            background-color: lightgray;
+        }
+        
+        .theme-box {
+            width: 50px;
+            height: 25px;
+            border-radius: 25px;
+            background-color: #aaaaaa;
+            position: absolute;
+            transition: .5s ease-in-out;
+            cursor: pointer;
+        }
+        
+        img {
+            width: 30px;
+            height: 30px;
+            border: 2px solid white;
+            border-radius: 50%;
+            padding: 5px;
+            position: absolute;
+            background-color: #606060;
+            transition: .4s ease-in-out;
+        }
+        
+        #sol {
+            translate: -20px;
+        }
+        
+        #lua {
+            opacity: 0;
+        }
+        
+        #theme-input:checked ~ img {
+            translate: 30px;
+            background-color: #909090;
+        }
+        
+        #theme-input:checked ~ #sol {
+            rotate: 180deg;
+            opacity: 0;
+        }
+        
+        #theme-input:checked ~ #lua {
+            rotate: 360deg;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="light">
+    <div class="theme">
+        <label>
+            <input type="checkbox" id="theme-input">
+            <span class="theme-box"></span>
+            <img src="sol.png" id="sol">
+            <img src="lua.png" id="lua">
+        </label>
+    </div>
+    
+    <script>
+        let body = document.querySelector('body');
+        let theme = document.querySelector('#theme-input');
+        
+        theme.onclick = function() {
+            if (theme.checked) {
+                body.classList.remove('light');
+                body.classList.add('dark');
+            } else {
+                body.classList.remove('dark');
+                body.classList.add('light');
+            }
+        }
+        
+    </script>
+</body>
+</html>
