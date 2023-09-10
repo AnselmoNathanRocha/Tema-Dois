@@ -24,14 +24,17 @@
             background-color: rgba(0, 0, 0, .8);
         }
         
-        .theme {
-            position: relative;
-        }
-        
         label {
             display: flex;
             justify-content: start;
             align-items: center;
+            opacity: .7;
+            transition: .2s ease-in-out;
+            cursor: pointer;
+        }
+
+        label:hover {
+            opacity: 1;
         }
         
         #theme-input {
@@ -50,7 +53,6 @@
             background-color: #aaaaaa;
             position: absolute;
             transition: .5s ease-in-out;
-            cursor: pointer;
         }
         
         img {
